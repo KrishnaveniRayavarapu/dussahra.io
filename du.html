@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Dussahra</title>
+  <style>
+    /* Container to center content */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+      margin: 0;
+      background-color: #000;
+    }
+
+    .container {
+      text-align: center;
+    }
+
+    /* Wave effect for 'Happy Dussahra' */
+    .wave-text {
+      font-size: 60px;
+      font-weight: bold;
+      color: #FFD700;
+      animation: wave 2s infinite;
+    }
+
+    @keyframes wave {
+      0%, 100% {
+        transform: translateX(0);
+      }
+      50% {
+        transform: translateX(10px);
+      }
+    }
+
+    /* Multicolor animation for name */
+    .multicolor-text {
+      font-size: 40px;
+      font-weight: bold;
+      background: linear-gradient(45deg, red, yellow, green, blue, purple);
+      -webkit-background-clip: text;
+      color: transparent;
+      animation: rainbow 5s infinite;
+    }
+
+    @keyframes rainbow {
+      0% { color: red; }
+      20% { color: orange; }
+      40% { color: yellow; }
+      60% { color: green; }
+      80% { color: blue; }
+      100% { color: violet; }
+    }
+
+    /* Crackers effect (flower burst) */
+    .cracker-container {
+      position: relative;
+      width: 100%;
+      height: 300px;
+    }
+
+    .cracker {
+      width: 15px;
+      height: 15px;
+      background-color: red;
+      border-radius: 50%;
+      position: absolute;
+      animation: explode 2s infinite ease-in-out;
+    }
+
+    .cracker:nth-child(2) {
+      background-color: green;
+      animation-delay: 0.5s;
+    }
+
+    .cracker:nth-child(3) {
+      background-color: blue;
+      animation-delay: 1s;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(0.1);
+        top: 50%;
+        left: 50%;
+      }
+      50% {
+        transform: scale(1);
+        top: 10%;
+        left: 90%;
+      }
+      100% {
+        transform: scale(0.1);
+        top: 80%;
+        left: 30%;
+      }
+    }
+
+    /* Style for Durga Matha image */
+    .durga-matha {
+      width: 200px; /* Adjust the size as needed */
+      border-radius: 50%; /* Makes it circular */
+      margin-top: 20px;
+      border: 5px solid #FFD700;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="wave-text">Happy Dussahra</h1>
+    <img src="du/durga_matha.jpg" alt="Durga Matha" class="durga_matha">
+    <h2 class="multicolor-text" id="name">Guest</h2>
+    <div class="cracker-container">
+      <div class="cracker"></div>
+      <div class="cracker"></div>
+      <div class="cracker"></div>
+    </div>
+  </div>
+
+  <script>
+    // Get name from URL parameter and display it
+    const urlParams = new URLSearchParams(window.location.search);
+    const name = urlParams.get('name') || 'Guest';
+    document.getElementById('name').innerText = name;
+  </script>
+</body>
+</html>
